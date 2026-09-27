@@ -225,7 +225,6 @@ class OutlierIssueManager(IssueManager):
 
         if knn_graph is not None:
             N = knn_graph.shape[0]
-            k = knn_graph.nnz // N
             dists = knn_graph.data.reshape(N, -1)[:, 0]
             nn_ids = knn_graph.indices.reshape(N, -1)[:, 0]
 

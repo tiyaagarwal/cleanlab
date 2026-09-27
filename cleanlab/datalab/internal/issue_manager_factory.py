@@ -33,9 +33,7 @@ from cleanlab.datalab.internal.issue_manager import (
     LabelIssueManager,
     NearDuplicateIssueManager,
     NonIIDIssueManager,
-    ClassImbalanceIssueManager,
     UnderperformingGroupIssueManager,
-    DataValuationIssueManager,
     OutlierIssueManager,
     NullIssueManager,
 )

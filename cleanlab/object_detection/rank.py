@@ -168,7 +168,6 @@ def _compute_label_quality_scores(
 ) -> np.ndarray:
     """Internal function to prune extra bounding boxes and compute label quality scores based on passed in method."""
 
-    pred_probs_prepruned = False
     min_pred_prob = _get_min_pred_prob(predictions)
     aggregation_weights = _get_aggregation_weights(aggregation_weights)
 
@@ -176,8 +175,6 @@ def _compute_label_quality_scores(
         predictions = _prune_by_threshold(
             predictions=predictions, threshold=threshold, verbose=verbose
         )
-        if np.abs(min_pred_prob - threshold) < 0.001 and threshold > 0:
-            pred_probs_prepruned = True  # the provided threshold is the threshold used for pre_pruning the pred_probs during model prediction.
     else:
         threshold = min_pred_prob  # assume model was not pre_pruned if no threshold was provided
 

@@ -403,7 +403,6 @@ class OutOfDistribution:
         ood_features_scores : Tuple[np.ndarray, Optional[NearestNeighbors]]
         Return a tuple whose first element is array of `ood_features_scores` and second is a `knn` Estimator object.
         """
-        DEFAULT_K = 10
         # fit skip over (if knn is not None) then skipping fit and suggest score else fit.
         distance_metric = None
         correct_knn = False
