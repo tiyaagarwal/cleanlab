@@ -3,7 +3,6 @@ import sys
 from sklearn.linear_model import LogisticRegression
 from sklearn.base import BaseEstimator
 from sklearn.model_selection import GridSearchCV
-import sklearn
 import scipy
 import pytest
 import numpy as np
@@ -749,18 +748,8 @@ if is_python_311:
 else:
     sre_deprecation_pytestmark = pytest.mark.filterwarnings("default")
 
-# Check if the installed version of sklearn is 1.5.0.
-# The test_sklearn_gridsearchcv test fails due to a regression introduced in 1.5.0.
-# This issue will be fixed in sklearn version 1.5.1.
-uses_sklearn_1_5_0 = sklearn.__version__ == "1.5.0"
-
-
 @sre_deprecation_pytestmark  # Allow sre_constants deprecation warning for Python 3.11
 @pytest.mark.filterwarnings("error")  # All other warnings are treated as errors
-@pytest.mark.skipif(
-    uses_sklearn_1_5_0,
-    reason="Test is skipped because sklearn 1.5.0 is installed, which has a regression for GridSearchCV.",
-)  # TODO: Remove this line once sklearn 1.5.1 is released
 def test_sklearn_gridsearchcv():
     # hyper-parameters for grid search
     param_grid = {
