@@ -552,7 +552,6 @@ class LabelInspector:
             confident_thresholds=self.get_confident_thresholds(silent=True),
             **self.quality_score_kwargs,
         )
-        class_counts = value_counts_fill_missing_classes(labels, num_classes=self.num_class)
         if update_num_issues:
             self._update_num_label_issues(labels, pred_probs, **self.num_issue_kwargs)
         self.examples_processed_quality += batch_size
