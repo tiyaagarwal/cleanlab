@@ -11,7 +11,6 @@ from cleanlab.multilabel_classification.rank import get_label_quality_scores
 
 if TYPE_CHECKING:  # pragma: no cover
     import numpy.typing as npt
-    import pandas as pd
 
     from cleanlab.datalab.datalab import Datalab
 

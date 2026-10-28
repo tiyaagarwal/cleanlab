@@ -25,7 +25,6 @@ from cleanlab.datalab.internal.issue_manager.knn_graph_helpers import (
 
 if TYPE_CHECKING:  # pragma: no cover
     import numpy.typing as npt
-    import pandas as pd
     from cleanlab.datalab.datalab import Datalab
 
 
